@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+
+<html>
+   <head>
+
+      <script type = "text/javascript">
+         function WebSocketTest() {
+
+            if ("WebSocket" in window) {
+
+               // Let us open a web socket
+               var ws = new WebSocket("ws://192.168.0.15:8080");
+
+
+               ws.onopen = function() {
+
+                  // Web Socket is connected, send data using send()
+                  ws.send("Palavra");
+
+               };
+
+               ws.onmessage = function (evt) {
+                  var received_msg = evt.data;
+
+               };
+
+               ws.onclose = function() {
+
+                  // websocket is closed.
+               };
+            } else {
+
+               // The browser doesn't support WebSocket
+               alert("WebSocket NOT supported by your Browser!");
+            }
+         }
+         function Louvor() {
+
+            if ("WebSocket" in window) {
+
+               // Let us open a web socket
+               var ws = new WebSocket("ws://192.168.0.15:8080");
+
+
+               ws.onopen = function() {
+
+                  // Web Socket is connected, send data using send()
+                  ws.send("Louvor");
+
+               };
+
+               ws.onmessage = function (evt) {
+                  var received_msg = evt.data;
+
+               };
+
+               ws.onclose = function() {
+
+                  // websocket is closed.
+               };
+            } else {
+
+               // The browser doesn't support WebSocket
+               alert("WebSocket NOT supported by your Browser!");
+            }
+         }
+
+      </script>
+
+   </head>
+
+   <body>
+
+      <div id = "sse">
+         <button type"button" onclick="WebSocketTest()">Send Msg</button>
+         <button type"button" onclick="Louvor()">Louvor</button>
+
+
+      </div>
+
+   </body>
+</html>
