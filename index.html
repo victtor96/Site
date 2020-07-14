@@ -2,9 +2,33 @@
 
 <html>
    <head>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+      <style>
+      .btn {
+       background-color: DodgerBlue;
+       border: none;
+       color: white;
+       padding: 60px 60px;
+       font-size: 35px;
+       cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+ background-color: Red;
+
+
+}
+      </style>
 
       <script type = "text/javascript">
-         function WebSocketTest() {
+
+
+
+         function WebSocketTest(data) {
 
             if ("WebSocket" in window) {
 
@@ -15,37 +39,7 @@
                ws.onopen = function() {
 
                   // Web Socket is connected, send data using send()
-                  ws.send("Palavra");
-
-               };
-
-               ws.onmessage = function (evt) {
-                  var received_msg = evt.data;
-
-               };
-
-               ws.onclose = function() {
-
-                  // websocket is closed.
-               };
-            } else {
-
-               // The browser doesn't support WebSocket
-               alert("WebSocket NOT supported by your Browser!");
-            }
-         }
-         function Louvor() {
-
-            if ("WebSocket" in window) {
-
-               // Let us open a web socket
-               var ws = new WebSocket("ws://192.168.0.15:8080");
-
-
-               ws.onopen = function() {
-
-                  // Web Socket is connected, send data using send()
-                  ws.send("Louvor");
+                  ws.send(data);
 
                };
 
@@ -70,13 +64,24 @@
    </head>
 
    <body>
+     <p></p>
+     <button class="btn"  type"button" onclick="WebSocketTest('palavra')">Palavra</button>
+     <button class="btn"  type"button" onclick="WebSocketTest('louvor')">Louvor</button>
+     <button class="btn"  type"button" onclick="WebSocketTest('limpa')">Limpa</button>
+     <button class="btn" type"button" onclick="WebSocketTest('oferta')">  Oferta  </button>
 
-      <div id = "sse">
-         <button type"button" onclick="WebSocketTest()">Send Msg</button>
-         <button type"button" onclick="Louvor()">Louvor</button>
+     <br><br>
+     <iframe width="420" height="315"
+           src="https://www.youtube.com/embed/qwS4ne-CcQ0?controls=1">
+     </iframe>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+     <img src="pick.png" style="width:420px;height:300px;">
 
 
-      </div>
+
+
+
 
    </body>
 </html>
